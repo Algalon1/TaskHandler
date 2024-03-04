@@ -1,0 +1,14 @@
+### Получение задач
+
+GET localhost:8080/tasks
+
+### Добавление задачи
+
+POST localhost:8080/tasks
+Content-Type: application/json
+
+{
+  "title": "Test task",
+  "description": "Some description",
+  "assignTo": "Max"
+}
