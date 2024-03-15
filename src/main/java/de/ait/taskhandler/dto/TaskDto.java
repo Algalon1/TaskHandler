@@ -25,6 +25,8 @@ public class TaskDto {
     private String assignTo;
     @Schema(description = "Статус задачи - DRAFT, TODO, IN_PROGRESS, TESTING, DONE", example = "TODO")
     private String status;
+    @Schema(description = "Приоритет задачи - LOWEST, LOW, MEDIUM, HIGH, HIGHEST", example = "MEDIUM")
+    private String priority;
 
 
     public static TaskDto from(Task task){
@@ -33,7 +35,8 @@ public class TaskDto {
                 .title(task.getTitle())
                 .description(task.getDescription())
                 .assignTo(task.getAssignTo())
-                .status(task.getStatus())
+                .status(task.getStatus().toString())
+                .priority(task.getPriority().toString())
                 .build();
     }
 

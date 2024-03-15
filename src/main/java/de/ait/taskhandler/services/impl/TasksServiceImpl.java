@@ -29,6 +29,7 @@ public class TasksServiceImpl implements TasksService {
                 .description(newTask.getDescription())
                 .assignTo(newTask.getAssignTo())
                 .status(Task.Status.DRAFT)
+                .priority(Task.Priority.valueOf(newTask.getPriority()))
                 .build();
 
         tasksRepository.save(task);
@@ -45,6 +46,6 @@ public class TasksServiceImpl implements TasksService {
     public TaskDto getTask(Long taskID) {
         Task task = tasksRepository.findById(taskID)
                 .orElseThrow(()-> new RestException(HttpStatus.NOT_FOUND,"Task with  id <"+taskID+"> is not found"));
-        return null;
+        return from(task);
     }
 }

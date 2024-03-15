@@ -4,6 +4,7 @@ import io.swagger.v3.oas.annotations.media.Schema;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotEmpty;
 import jakarta.validation.constraints.NotNull;
+import jakarta.validation.constraints.Pattern;
 import jakarta.validation.constraints.Size;
 import lombok.Data;
 
@@ -28,4 +29,9 @@ public class NewTaskDto {
     @NotNull
     @NotBlank
     private String assignTo;
+
+    @Schema(description = "Приоритет задачи", example = "High")
+    @Pattern(regexp = "^(Highest|High|Medium|Low|Lowest)$")
+    private String priority;
+
 }

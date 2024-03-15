@@ -4,15 +4,19 @@ import jakarta.persistence.*;
 import lombok.*;
 import org.hibernate.annotations.Check;
 
-@Getter
-@Setter
+@Data
 @AllArgsConstructor
 @NoArgsConstructor
 @Builder
+@Entity
 public class Task {
 
     public enum Status{
         DRAFT, TODO, IN_PROGRESS, TESTING, DONE
+    }
+
+    public enum Priority{
+        LOWEST, LOW, MEDIUM, HIGH, HIGHEST
     }
 
     @Id
@@ -31,5 +35,9 @@ public class Task {
     @Enumerated(value = EnumType.STRING)
     @Check(constraints = "status in ('DRAFT', 'TODO', 'IN_PROGRESS', 'TESTING', 'DONE')")
     private Status status;
+
+    @Enumerated(value = EnumType.STRING)
+    @Check(constraints = "priority in ('LOWEST', 'LOW', 'MEDIUM', 'HIGH', 'HIGHEST')")
+    private Priority priority;
     
 }
