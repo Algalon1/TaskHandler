@@ -14,7 +14,9 @@ import io.swagger.v3.oas.annotations.responses.ApiResponse;
 import io.swagger.v3.oas.annotations.responses.ApiResponses;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import io.swagger.v3.oas.annotations.tags.Tags;
+import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
@@ -43,8 +45,8 @@ public class TaskController {
                     content = @Content(mediaType = "application/json", schema = @Schema(implementation = ValidationErrorsDto.class)))
     }
     )
-    public TaskDto addTask(@RequestBody NewTaskDto newTask) {
-        return tasksService.addTask(newTask);
+    public ResponseEntity<TaskDto> addTask(@RequestBody @Valid NewTaskDto newTask) {
+        return ResponseEntity.status(HttpStatus.CREATED).body(tasksService.addTask(newTask));
     }
 
 

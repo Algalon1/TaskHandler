@@ -25,13 +25,12 @@ public class NewTaskDto {
     private String description;
 
     @Schema(description = "Кому назначена задача", example = "Алексу")
-    @Size(min = 5, max = 1000)
     @NotNull
     @NotBlank
     private String assignTo;
 
     @Schema(description = "Приоритет задачи", example = "High")
-    @Pattern(regexp = "^(Highest|High|Medium|Low|Lowest)$")
+    @Pattern(regexp = "^(HIGHEST|HIGHT|MEDIUM|LOW|LOWEST)$")
     private String priority;
 
 }

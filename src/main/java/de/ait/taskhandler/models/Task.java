@@ -29,7 +29,7 @@ public class Task {
     @Column(nullable = false, length = 1000)
     private String description;
 
-    @Column(nullable = false, length = 100)
+    @Column(name = "assignTo", nullable = false, length = 100)
     private String assignTo;
 
     @Enumerated(value = EnumType.STRING)
