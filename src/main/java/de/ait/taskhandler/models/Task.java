@@ -30,6 +30,6 @@ public class Task {
 
     @Enumerated(value = EnumType.STRING)
     @Check(constraints = "status in ('DRAFT', 'TODO', 'IN_PROGRESS', 'TESTING', 'DONE')")
-    private String status;
+    private Status status;
     
 }

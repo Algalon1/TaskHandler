@@ -14,7 +14,7 @@ import java.util.List;
 @NoArgsConstructor
 @Builder
 @Schema(name = "Task", description = "Описание курса")
-public class TaskDTO {
+public class TaskDto {
     @Schema(description = "id задачи", example = "1")
     private Long id;
     @Schema(description = "Заголовок задачи", example = "Сделать форму регистрации")
@@ -27,8 +27,8 @@ public class TaskDTO {
     private String status;
 
 
-    public static TaskDTO from(Task task){
-        return TaskDTO.builder()
+    public static TaskDto from(Task task){
+        return TaskDto.builder()
                 .id(task.getId())
                 .title(task.getTitle())
                 .description(task.getDescription())
@@ -38,9 +38,9 @@ public class TaskDTO {
     }
 
 
-    public static List<TaskDTO> from(List<Task> tasks){
+    public static List<TaskDto> from(List<Task> tasks){
         return tasks.stream()
-                .map(TaskDTO::from)
+                .map(TaskDto::from)
                 .toList();
     }
 }
