@@ -19,3 +19,14 @@ GET http://localhost:8080/api/tasks/1
 ### Получение списка задач
 
 GET http://localhost:8080/api/tasks
+
+
+### Регистрация нового пользователя
+
+POST http://localhost:8080/api/users/register
+Content-Type: application/json
+
+{
+  "email": "marsel.sidikov@gmail.com",
+  "password": "Qwerty007!"
+}
